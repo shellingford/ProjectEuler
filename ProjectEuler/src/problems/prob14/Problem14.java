@@ -12,14 +12,14 @@ public class Problem14 {
 		int maxChainLength = 0;
 		int startingNumber = 0;
 		long start = System.currentTimeMillis();
-		Map<Long, Integer> mapa = new HashMap<Long, Integer>();
+		Map<Long, Integer> map = new HashMap<Long, Integer>();
 		for(int i = 10; i < 1000000; i++){
-			int brojac = 1;
+			int counter = 1;
 			long current = i;
 			while(current != 1){
-				brojac++;
-				if(mapa.containsKey(current)){
-					brojac += mapa.get(current);
+				counter++;
+				if(map.containsKey(current)){
+					counter += map.get(current);
 					break;
 				}
 				if(current % 2 == 0){
@@ -29,9 +29,9 @@ public class Problem14 {
 					current = current * 3 + 1;
 				}
 			}
-			mapa.put((long)i, brojac);
-			if(brojac > maxChainLength){
-				maxChainLength = brojac;
+			map.put((long)i, counter);
+			if(counter > maxChainLength){
+				maxChainLength = counter;
 				startingNumber = i;
 			}
 		}

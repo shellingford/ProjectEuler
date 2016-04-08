@@ -12,32 +12,22 @@ public class Problem32 {
 	 */
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
-		long brojac = 0, brojac2 = 0;
 		Set<Integer> set = new HashSet<Integer>();
 		List<Integer> lista = new ArrayList<Integer>();
 		for(int k = 1; k < 2000; k++){
 			for(int i = 1; i < 2000; i++){
 				if(k%10==0 || i%10==0){
-					brojac++;
 					continue;
 				}
-//				if(!check(k+"",i+"")){
-//					brojac++;
-//					continue;
-//				}
 				int a = i * k;
 				String n = a + ""+k+""+i;
 				if(n.length() != 9){
 					continue;
 				}
 				if(check(n)){
-					brojac2++;
-					System.out.println(brojac2 + ".: " + i + " * "+k+" = " + a + " ==> " + n + "(" +check(n)+ ")");
 					if(!set.contains(a)){
 						set.add(a);
 						lista.add(a);
-//						lista.add(k);
-//						lista.add(i);
 					}
 				}
 			}
@@ -45,7 +35,7 @@ public class Problem32 {
 		
 		long duration = System.currentTimeMillis() - start;
 		
-		System.out.println("Duration: " + (duration / 1000d) + "s   brojac="+brojac);
+		System.out.println("Duration: " + (duration / 1000d) + "s");
 		long sum = 0;
 		for(Integer i : lista){
 			sum += i;

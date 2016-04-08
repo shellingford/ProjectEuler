@@ -13,23 +13,21 @@ public class Problem92 {
 		long counter = 0;
 		long start = System.currentTimeMillis();
 		for(long i = 2; i < 10000000; i++){
-			List<Long> lista = new ArrayList<Long>();
+			List<Long> list = new ArrayList<Long>();
 			long number = i;
-			if(number < 568) lista.add(number);
+			if(number < 568) list.add(number);
 			while(true){
 				if(number == 1){
 					break;
 				}
 				if(number == 89){
-					set.addAll(lista);
+					set.addAll(list);
 					if(i == 567){
 						counter = set.size();
 					}
 					if(i > 567){
-						if(lista.size() > 1){
-							System.out.println("num: " + i);
-							for(Long l : lista){
-								System.out.println("\t"+l);
+						if(list.size() > 1){
+							for(Long l : list){
 								if(!set.contains(l)){
 									set.add(l);
 									counter++;
@@ -41,14 +39,14 @@ public class Problem92 {
 					break;
 				}
 				if(set.contains(number)){
-					set.addAll(lista);
+					set.addAll(list);
 					if(i == 567){
 						counter = set.size();
 					}
 					if(i > 567){
-						if(lista.size() > 1){
+						if(list.size() > 1){
 							System.out.println("num: " + i);
-							for(Long l : lista){
+							for(Long l : list){
 								System.out.println("\t"+l);
 								if(!set.contains(l)){
 									set.add(l);
@@ -61,26 +59,11 @@ public class Problem92 {
 					break;
 				}
 				number = (long)calculate(number);
-				lista.add(number);
+				list.add(number);
 			}
 		}
 		long duration = System.currentTimeMillis() - start;
-		long b = 1;
-		System.out.println(set.contains(b));
-		long a = 89;
-		System.out.println(set.contains(a));
 		System.out.println("result: " + counter + " in " + (duration/1000d) + "s");
-	}
-	
-	@SuppressWarnings("unused")
-	private static void print(List<Long> lista){
-		for(int i = 0; i < lista.size(); i++){
-			if(i == lista.size() - 1){
-				System.out.print(lista.get(i));
-			}
-			else System.out.print(lista.get(i) + " -> ");
-		}
-		System.out.println();
 	}
 	
 	private static int calculate(long number){

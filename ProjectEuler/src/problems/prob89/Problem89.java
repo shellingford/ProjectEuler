@@ -13,25 +13,14 @@ public class Problem89 {
 	static Map<Integer, String> mapa3 = new HashMap<Integer, String>();
 	static int len = 0;
 	public static void main(String[] args) throws IOException {
-		String roman1k = "roman-1k.txt";
-		String romans = "roman.txt";
-		String dir = "C:\\Users\\Renn\\Desktop\\programming\\Euler project\\";
+		String roman1k = "files/roman-1k.txt";
+		String romans = "files/roman.txt";
 		
 		long start = System.currentTimeMillis();
-		read1k(dir+roman1k);
-//		makeRomans();
-		read(dir+romans);
+		read1k(roman1k);
+		read(romans);
 		long duration = System.currentTimeMillis()-start;
 		System.out.println("Result: " + len + " in " + (duration/1000d) + "s");
-		
-		
-//		for(Integer key : mapa2.keySet()){
-//			if(!mapa2.get(key).equals(mapa3.get(key))){
-//				System.out.println(mapa2.get(key) + "  ==  " + mapa3.get(key) + "  ==> " + key);
-//			}
-//		}
-
-//		convert("MMMMCMLXXXXVIII");
 	}
 	
 	private static void read(String fFileName) throws IOException {
@@ -50,7 +39,6 @@ public class Problem89 {
 	private static void convert(String roman){
 		int number = 0;
 		int maxLen = roman.length();
-		String s = roman;
 		if(roman.contains("IV")){
 			number += 4;
 			roman = roman.replace("IV", "");
@@ -93,18 +81,15 @@ public class Problem89 {
 		number += 500*noOccurances(str, 'D');
 		number += 100*noOccurances(str, 'C');
 		
-//		System.out.println(roman + " => " + number);
 		try{
 			len += Math.abs(maxLen - mapa.get(number));
 		}catch(Exception e){
-			System.out.println("EEEEEEERRRRRRRRRROOOOOOOOOOOOOOOOOOOOORRRRRRRRRRRRRRRRRRR");
-			System.out.println(s + "("+roman+") ==> " + number);
+			e.printStackTrace();
 			System.exit(0);
 		}
 	}
 	
 	private static int noOccurances(char[] str, char s){
-//		if(s == 'M') System.out.println("noOccurances: " + Arrays.toString(str));
 		int count = 0;
 		for(int i = 0; i < str.length; i++){
 			if(str[i] == s){
@@ -139,51 +124,6 @@ public class Problem89 {
 	    finally{
 	      scanner.close();
 	    }
-//	    System.out.println("added: " + brojac);
 	  }
 	
-	@SuppressWarnings("unused")
-	private static void makeRomans(){
-		String[] s = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX",""};
-		String[] s1 = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
-		String[] s2 = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
-		
-		for(int i = 0; i < 5; i++){
-			for(int j = 0; j < 10; j++){
-				for(int k = 0; k < 10; k++){
-					for(int r=0; r < 10; r++){
-						String roman = "";
-						if(i == 1){
-							roman = "M";
-						}
-						if(i == 2){
-							roman = "MM";
-						}
-						if(i == 3){
-							roman = "MMM";
-						}
-						if(i == 4){
-							roman = "MMMM";
-						}
-						int number = j*100 + k*10  + i*1000;
-						if(r < 9){
-							number += (r+1)*1;
-						}
-						if(number == 4850){
-							System.out.println("j="+j+"("+s2[j]+"), k="+k+"("+s1[k]+"), r="+r+"("+s[r]+")");
-						}
-						if(j > 0){
-							roman += s2[j];
-						}
-						if(k > 0){
-							roman += s1[k];
-						}
-						roman += s[r];
-						mapa3.put(number, roman);
-					}
-				}
-			}
-		}
-	}
-
 }
