@@ -1,4 +1,4 @@
-package problems.prob32;
+package problems.probssub100;
 
 import java.util.ArrayList;
 import java.util.HashSet;

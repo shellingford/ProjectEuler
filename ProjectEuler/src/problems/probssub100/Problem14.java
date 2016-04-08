@@ -1,4 +1,4 @@
-package problems.prob14;
+package problems.probssub100;
 
 import java.util.HashMap;
 import java.util.Map;

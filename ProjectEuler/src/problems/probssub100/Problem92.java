@@ -1,4 +1,4 @@
-package problems.prob92;
+package problems.probssub100;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,7 +8,7 @@ import java.util.Set;
 public class Problem92 {
 
 	static Set<Long> set = new HashSet<Long>();
-	
+
 	public static void main(String[] args) {
 		long counter = 0;
 		long start = System.currentTimeMillis();
@@ -58,17 +58,17 @@ public class Problem92 {
 					}
 					break;
 				}
-				number = (long)calculate(number);
+				number = calculate(number);
 				list.add(number);
 			}
 		}
 		long duration = System.currentTimeMillis() - start;
 		System.out.println("result: " + counter + " in " + (duration/1000d) + "s");
 	}
-	
+
 	private static int calculate(long number){
 		int result = 0;
-		
+
 		while(true){
 			if(number < 10){
 				result += number*number;
@@ -80,7 +80,7 @@ public class Problem92 {
 				number = number / 10;
 			}
 		}
-		
+
 		return result;
 	}
 

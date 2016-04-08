@@ -1,4 +1,4 @@
-package problems.prob38;
+package problems.probssub100;
 
 public class Problem38 {
 

@@ -1,4 +1,4 @@
-package problems.prob89;
+package problems.fibonacciFever;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package problems.prob35;
+package problems.probssub100;
 
 import java.io.FileInputStream;
 import java.io.IOException;

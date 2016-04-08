@@ -1,4 +1,4 @@
-package problems.prob65;
+package problems.probssub100;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
