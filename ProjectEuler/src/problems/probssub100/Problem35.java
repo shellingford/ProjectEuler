@@ -1,34 +1,31 @@
 package problems.probssub100;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.BitSet;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Scanner;
 
 import problems.PrimeGenerator;
 
 public class Problem35 {
 
-	static int counter = 0;
 	public static void main(String[] args) throws IOException {
 		long start = System.currentTimeMillis();
 		Set<Integer> list = new HashSet<Integer>();
 		Set<Integer> list2 = new HashSet<Integer>();
 		list.addAll(PrimeGenerator.computePrimesList(1000000));
-		
+
 		for(Integer broj : list){
 			if(!list2.contains(broj)){
 				check(list, list2, broj);
 			}
 		}
-		
+
 		long duration = System.currentTimeMillis() - start;
-		
+
 		System.out.println("result: " + list2.size() + ", in " + (duration/(double)1000) + "s");
 	}
-	
+
 	public static BitSet computePrimes(int limit)
 	{
 	    final BitSet primes = new BitSet();
@@ -47,7 +44,7 @@ public class Problem35 {
 	    }
 	    return primes;
 	}
-	
+
 	private static void check(Set<Integer> list, Set<Integer> list2, int num){
 		String s = num + "";
 		int b = num;
@@ -61,25 +58,7 @@ public class Problem35 {
 			}
 			else return;
 		}
-		counter += set.size() + 1;
 		set.add(num);
 		list2.addAll(set);
 	}
-	
-	public static Set<Integer> read(String fileName) throws IOException {
-		Set<Integer> list = new HashSet<Integer>();
-	    Scanner scanner = new Scanner(new FileInputStream(fileName));
-
-	    try {
-	      while (scanner.hasNextLine()){
-	    	  int br = Integer.parseInt(scanner.nextLine());
-	    	  list.add(br);
-	      }
-	    }
-	    finally{
-	      scanner.close();
-	    }
-	    return list;
-	  }
-
 }

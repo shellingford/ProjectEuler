@@ -33,17 +33,14 @@ public class Problem3 {
 
 	public static List<Integer> read(String fFileName) throws IOException {
 		List<Integer> list = new ArrayList<Integer>();
-	    Scanner scanner = new Scanner(new FileInputStream(fFileName));
-
-		double max = 775147;
-	    try {
+	    try (Scanner scanner = new Scanner(new FileInputStream(fFileName))) {
+		  double max = 775147;
 	      while (scanner.hasNextLine()){
 	    	  int br = Integer.parseInt(scanner.nextLine());
-	    	  if(br < max) list.add(br);
+	    	  if (br < max) {
+	    		  list.add(br);
+	    	  }
 	      }
-	    }
-	    finally{
-	      scanner.close();
 	    }
 	    return list;
 	  }

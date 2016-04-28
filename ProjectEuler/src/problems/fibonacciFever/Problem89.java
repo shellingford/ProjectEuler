@@ -15,27 +15,23 @@ public class Problem89 {
 	public static void main(String[] args) throws IOException {
 		String roman1k = "files/roman-1k.txt";
 		String romans = "files/roman.txt";
-		
+
 		long start = System.currentTimeMillis();
 		read1k(roman1k);
 		read(romans);
 		long duration = System.currentTimeMillis()-start;
 		System.out.println("Result: " + len + " in " + (duration/1000d) + "s");
 	}
-	
-	private static void read(String fFileName) throws IOException {
-	    Scanner scanner = new Scanner(new FileInputStream(fFileName));
 
-	    try {
+	private static void read(String fFileName) throws IOException {
+	    try (Scanner scanner = new Scanner(new FileInputStream(fFileName))) {
 	      while (scanner.hasNextLine()){
 	    	  convert(scanner.nextLine());
 	      }
-	    }
-	    finally{
-	      scanner.close();
+
 	    }
 	  }
-	
+
 	private static void convert(String roman){
 		int number = 0;
 		int maxLen = roman.length();
@@ -47,7 +43,7 @@ public class Problem89 {
 			number += 9;
 			roman = roman.replace("IX", "");
 		}
-		
+
 		if(roman.contains("XL")){
 			number += 40;
 			roman = roman.replace("XL", "");
@@ -56,7 +52,7 @@ public class Problem89 {
 			number += 90;
 			roman = roman.replace("XC", "");
 		}
-		
+
 		if(roman.contains("CD")){
 			number += 400;
 			roman = roman.replace("CD", "");
@@ -67,20 +63,20 @@ public class Problem89 {
 		}
 
 		char[] str = roman.toCharArray();
-		
+
 		number += 1*noOccurances(str, 'I');
-		
+
 		number += 5*noOccurances(str, 'V');
-		
+
 		number += 10*noOccurances(str, 'X');
-		
+
 		number += 50*noOccurances(str, 'L');
-		
+
 		number += 1000*noOccurances(str, 'M');
-		
+
 		number += 500*noOccurances(str, 'D');
 		number += 100*noOccurances(str, 'C');
-		
+
 		try{
 			len += Math.abs(maxLen - mapa.get(number));
 		}catch(Exception e){
@@ -88,7 +84,7 @@ public class Problem89 {
 			System.exit(0);
 		}
 	}
-	
+
 	private static int noOccurances(char[] str, char s){
 		int count = 0;
 		for(int i = 0; i < str.length; i++){
@@ -98,11 +94,10 @@ public class Problem89 {
 		}
 		return count;
 	}
-	
-	private static void read1k(String fFileName) throws IOException {
-	    Scanner scanner = new Scanner(new FileInputStream(fFileName));
-	    int brojac = 0;
-	    try {
+
+	private static void read1k(String fileName) throws IOException {
+	    try (Scanner scanner = new Scanner(new FileInputStream(fileName))) {
+	      int brojac = 0;
 	      while (scanner.hasNextLine()){
 	    	  brojac++;
 	    	  String romanNumber = scanner.nextLine();
@@ -112,7 +107,7 @@ public class Problem89 {
 	    	  mapa.put(brojac+2000, len+2);
 	    	  mapa.put(brojac+3000, len+3);
 	    	  mapa.put(brojac+4000, len+4);
-	    	  
+
 
 	    	  mapa2.put(brojac, romanNumber);
 	    	  mapa2.put(brojac+1000, "M"+romanNumber);
@@ -121,9 +116,6 @@ public class Problem89 {
 	    	  mapa2.put(brojac+4000, "MMMM"+romanNumber);
 	      }
 	    }
-	    finally{
-	      scanner.close();
-	    }
 	  }
-	
+
 }

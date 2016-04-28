@@ -1,8 +1,5 @@
 package problems.probssub100;
 
-
-
-
 public class Problem31 {
 
 	/**
