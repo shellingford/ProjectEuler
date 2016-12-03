@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import problems.PrimeGenerator;
+import problems.common.PrimeGenerator;
 
 public class Problem50 {
 

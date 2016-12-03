@@ -1,4 +1,4 @@
-package problems;
+package problems.common;
 
 import java.util.ArrayList;
 import java.util.BitSet;

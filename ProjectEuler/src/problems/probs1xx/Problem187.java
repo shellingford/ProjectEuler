@@ -2,7 +2,7 @@ package problems.probs1xx;
 
 import java.util.List;
 
-import problems.PrimeGenerator;
+import problems.common.PrimeGenerator;
 
 public class Problem187 {
 
