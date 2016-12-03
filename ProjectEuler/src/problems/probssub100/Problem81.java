@@ -12,19 +12,19 @@ import java.util.stream.Stream;
 import problems.common.SearchUtil;
 import problems.common.Vertex;
 
-public class Problem83 {
+public class Problem81 {
 
   /**
-   * In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by moving left, right,
-   * up, and down, is indicated in bold red and is equal to 2297.
+   * In the 5 by 5 matrix below, the minimal path sum from the top left to the bottom right, by only moving to the
+   * right and down, is indicated in bold red and is equal to 2427.
    *
-   * Find the minimal path sum, in matrix.txt, a 31K text file containing a 80 by 80 matrix, from the top left to the
-   * bottom right by moving left, right, up, and down.
+   * Find the minimal path sum, in matrix.txt, a 31K text file containing a 80 by 80 matrix, from the top left to
+   * the bottom right by only moving right and down.
    */
   public static void main(String[] args) throws FileNotFoundException {
     long start = System.currentTimeMillis();
 
-    List<Vertex> nodes = processFile("files/p083_matrix.txt");
+    List<Vertex> nodes = processFile("files/p081_matrix.txt");
     SearchUtil.dijkstra(nodes.get(0));
     int distance = nodes.get(nodes.size() - 1).getDistance();
 
@@ -71,7 +71,6 @@ public class Problem83 {
   }
 
   private static void addNeighbours(Vertex vertex, Vertex vertex2) {
-    vertex.getNeighbours().add(vertex2);
     vertex2.getNeighbours().add(vertex);
   }
 
