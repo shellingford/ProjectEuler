@@ -43,7 +43,7 @@ public class Problem243 {
       if (Double.compare(resilience(phi, number + 1), resilienceLimit) < 0) {
         for (int k = 1; k < prime; k++) {
           int n = phi * k;
-          int d = n * k;
+          int d = number * k;
           if (Double.compare(resilience(n, d), resilienceLimit) < 0) {
             return d;
           }
