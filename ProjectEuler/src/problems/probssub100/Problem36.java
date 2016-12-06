@@ -2,7 +2,6 @@ package problems.probssub100;
 
 import java.util.stream.IntStream;
 
-
 public class Problem36 {
 
   /**
