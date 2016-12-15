@@ -55,7 +55,7 @@ public class Problem82 {
   private static void readLine(String line, int rowCounter, Map<String, Vertex> nodesMap) {
     int[] row = Stream.of(line.split(",")).mapToInt(Integer::parseInt).toArray();
     for(int i = 0; i < row.length; i++) {
-      Vertex vertex = new Vertex(rowCounter + "," + i, row[i]);
+      Vertex vertex = new Vertex(rowCounter + "," + i, row[i], Integer.MAX_VALUE);
       if (rowCounter > 0) {
         Vertex rowPredecessor = nodesMap.get((rowCounter - 1) + "," + i);
         addNeighboursForBoth(vertex, rowPredecessor);

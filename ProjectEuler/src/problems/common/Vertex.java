@@ -6,12 +6,13 @@ import java.util.Set;
 public class Vertex {
   private String name;
   private int weight;
-  private int distance = Integer.MAX_VALUE;
+  private int distance;
   private Set<Vertex> neighbours = new HashSet<>();
 
-  public Vertex(String name, int weight) {
+  public Vertex(String name, int weight, int distanceInitValue) {
     this.name = name;
     this.weight = weight;
+    this.distance = distanceInitValue;
   }
 
   public Vertex(String name) {
