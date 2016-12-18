@@ -35,6 +35,7 @@ public class Problem131 {
       r++;
       possiblePrime = calcPrime(r);
     }
+
     System.out.println("Number of primes below 1M: " + count);
     System.out.println("Duration: " + (System.currentTimeMillis() - start) + "ms");
   }
