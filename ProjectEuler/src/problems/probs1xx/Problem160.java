@@ -2,7 +2,6 @@ package problems.probs1xx;
 
 import java.util.stream.LongStream;
 
-
 public class Problem160 {
 
   //we are trying to find last 5 digits, so we can always mod with 10000
